@@ -1,0 +1,29 @@
+<?php
+   if (empty($this->config->title)) {
+$this->config->title = "提出チェック";
+}
+if (empty($this->config->numberoftags1)) {
+$this->config->numberoftags1 = 0;
+}
+if (empty($this->config->numberoftags2)) {
+$this->config->numberoftags2 = 23;
+}
+?>
+
+<table cellpadding="9" cellspacing="0" class="blockconfigtable">
+  <tr valign="top">
+    <td align="right"><?php print_string("blocktitle","blog") ?>:</td>
+    <td><input type="text" name="title" size="50" value="<?php p($this->config->title) ?>" /></td>
+  </tr>
+
+  <tr valign="top">
+    <td align="right">表示期間:</td>
+    <td><?php choose_from_menu($numberoftags1,"numberoftags1",$this->config->numberoftags1) ?>時間前〜
+      <?php choose_from_menu($numberoftags2,"numberoftags2",$this->config->numberoftags2) ?>時間前までの提出を表示</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center"><input type="submit" value="<?php print_string("savechanges") ?>" /></td>
+  </tr>
+
+</table>
